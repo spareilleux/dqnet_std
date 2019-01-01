@@ -7,6 +7,15 @@
     <Authors>Stephane PAREILLEUX</Authors>
     <Company>Stephane PAREILLEUX</Company>
     <PackageId>DQNet_std</PackageId>
+    <Product>DQNet</Product>
+    <Description>Dual quaternions library for .NET (.NET standard)</Description>
+    <Copyright>Stephane Pareilleux</Copyright>
+    <PackageProjectUrl>https://github.com/spareilleux/dqnet_std</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/spareilleux/dqnet_std</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseUrl>https://www.gnu.org/licenses/gpl-3.0.en.html</PackageLicenseUrl>
+    <PackageReleaseNotes>Initial version</PackageReleaseNotes>
+    <PackageTags>Mathematics Kinematics Dual Quaternion .NET standard</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

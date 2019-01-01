@@ -7,7 +7,7 @@
         <member name="T:DQNet.DualQuaternion">
             <inheritdoc cref="T:System.IEquatable`1" />
             <summary>
-            The dual quaternion.
+            Represents a dual quaternion.
             </summary>
         </member>
         <member name="F:DQNet.DualQuaternion.ZeroTolerance">
