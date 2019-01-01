@@ -1,0 +1,508 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DQNet_std</name>
+    </assembly>
+    <members>
+        <member name="T:DQNet_std.DualQuaternion">
+            <inheritdoc cref="T:System.IEquatable`1" />
+            <summary>
+            The dual quaternion.
+            </summary>
+        </member>
+        <member name="F:DQNet_std.DualQuaternion.ZeroTolerance">
+            <summary>
+            The tolerance below which a double is considered as equivalent to zero.
+            </summary>
+        </member>
+        <member name="F:DQNet_std.DualQuaternion.Default">
+            <summary>
+            A dual quaternion with and identity default part and a zero dual part.
+            </summary>
+        </member>
+        <member name="F:DQNet_std.DualQuaternion.Zero">
+            <summary>
+            A dual quaternion with all of its components set to zero.
+            </summary>
+        </member>
+        <member name="F:DQNet_std.DualQuaternion.OriginPoint">
+            <summary>
+            A dual quaternion that represents the origin point (X:0, Y:0, Z:0).
+            </summary>
+        </member>
+        <member name="F:DQNet_std.DualQuaternion.Real">
+            <summary>
+            The real part of the dual quaternion.
+            </summary>
+        </member>
+        <member name="F:DQNet_std.DualQuaternion.Dual">
+            <summary>
+            The dual part of the dual quaternion.
+            </summary>
+        </member>
+        <member name="F:DQNet_std.DualQuaternion.RoundingDigits">
+            <summary>
+            Number digits used for rounding. 
+            </summary>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.#ctor(System.Numerics.Quaternion,System.Numerics.Quaternion)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DQNet_std.DualQuaternion"/> struct (From real and dual quaternions, the real gets normalized).
+            </summary><param name="real">The real.</param>
+            <param name="dual">The dual.</param>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <inheritdoc />
+            <summary>
+            Initializes a new instance of the <see cref="T:DQNet_std.DualQuaternion" /> struct.
+            </summary>
+            <param name="realX">
+            The real x.
+            </param>
+            <param name="realY">
+            The real y.
+            </param>
+            <param name="realZ">
+            The real z.
+            </param>
+            <param name="realW">
+            The real w.
+            </param>
+            <param name="dualX">
+            The dual x.
+            </param>
+            <param name="dualY">
+            The dual y.
+            </param>
+            <param name="dualZ">
+            The dual z.
+            </param>
+            <param name="dualW">
+            The dual w.
+            </param>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.#ctor(System.Collections.Generic.IEnumerable{System.Single})">
+            <summary>
+            Initializes a new instance of the <see cref="T:DQNet_std.DualQuaternion"/> struct.
+            </summary>
+            <param name="values">
+            The values to assign to the real and dual {X, Y, Z, W} components of the dual quaternion. 
+            This must be an array with eight elements.</param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown when <paramref name="values"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown when <paramref name="values"/> contains more or less than eight elements.
+            </exception>
+        </member>
+        <member name="P:DQNet_std.DualQuaternion.Rotation">
+            <summary>
+            Gets the rotation from the dual quaternion.
+            </summary>
+        </member>
+        <member name="P:DQNet_std.DualQuaternion.Translation">
+            <summary>
+            Gets the translation from the dual quaternion.
+            </summary>
+        </member>
+        <member name="P:DQNet_std.DualQuaternion.Length">
+            <summary>
+            Gets the length of the dual quaternion.
+            </summary>
+        </member>
+        <member name="P:DQNet_std.DualQuaternion.IsUnit">
+            <summary>
+            Gets a value indicating whether the dual quaternion is a unit dual quaternion.
+            </summary>
+        </member>
+        <member name="P:DQNet_std.DualQuaternion.Item(System.Int32)">
+            <summary>
+            Gets or sets a dual quaternion component by index.
+            </summary>
+            <param name="index">The index.</param>
+            <returns>The <see cref="T:System.Single"/> component of the dual quaternion.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.op_Addition(DQNet_std.DualQuaternion@,DQNet_std.DualQuaternion@)">
+            <summary>
+            Adds two dual quaternions.
+            </summary>
+            <param name="left">The left <see cref="T:DQNet_std.DualQuaternion"/>.</param>
+            <param name="right">The right <see cref="T:DQNet_std.DualQuaternion"/>.</param>
+            <returns>A <see cref="T:DQNet_std.DualQuaternion"/>.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.op_Subtraction(DQNet_std.DualQuaternion@,DQNet_std.DualQuaternion@)">
+            <summary>
+            Subtracts two dual quaternions.
+            </summary>
+            <param name="left">The left <see cref="T:DQNet_std.DualQuaternion"/>.</param>
+            <param name="right">The right <see cref="T:DQNet_std.DualQuaternion"/>.</param>
+            <returns>A <see cref="T:DQNet_std.DualQuaternion"/>.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.op_UnaryNegation(DQNet_std.DualQuaternion@)">
+            <summary>
+            Swaps the sign of all the elements in a dual quaternion.
+            </summary>
+            <param name="value">The dual quaternion to negate.</param>
+            <returns>
+            Result of swapping all values of the elements.
+            </returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.op_Multiply(DQNet_std.DualQuaternion@,System.Single)">
+            <summary>
+            Applies a scale factor to a dual quaternion.
+            </summary>
+            <param name="value">
+            The dual quaternion to scale.
+            </param>
+            <param name="scale">
+            The amount by which to scale the dual quaternion.
+            </param>
+            <returns>
+            The scaled dual quaternion.
+            </returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.op_Multiply(System.Single,DQNet_std.DualQuaternion@)">
+            <summary>
+            Applies a scale factor to a dual quaternion.
+            </summary>
+            <param name="scale">
+            The amount by which to scale the dual quaternion.
+            </param>
+            <param name="value">
+            The dual quaternion to scale.
+            </param>
+            <returns>
+            The scaled dual quaternion.
+            </returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.op_Multiply(DQNet_std.DualQuaternion@,DQNet_std.DualQuaternion@)">
+            <summary>
+            Multiplies a dual quaternion by another.
+            </summary>
+            <param name="left">
+            The left dual quaternion.
+            </param>
+            <param name="right">
+            The right dual quaternion.
+            </param>
+            <returns>
+            The product of the two dual quaternions.
+            </returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.op_Equality(DQNet_std.DualQuaternion@,DQNet_std.DualQuaternion@)">
+            <summary>
+            Tests for equality between two dual quaternions.
+            </summary>
+            <param name="left">
+            The first dual quaternion to compare.
+            </param><param name="right">
+            The second dual quaternion to compare.
+            </param>
+            <returns>
+            <c>true</c> if <paramref name="left"/> has the same value as <paramref name="right"/>; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.op_Inequality(DQNet_std.DualQuaternion@,DQNet_std.DualQuaternion@)">
+            <summary>
+            Tests for inequality between two dual quaternions.
+            </summary>
+            <param name="left">
+            The first value to compare.</param><param name="right">The second value to compare.
+            </param>
+            <returns>
+            <c>true</c> if <paramref name="left"/> has a different value than <paramref name="right"/>; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.CreateFromRotation(System.Double,System.Numerics.Vector3,System.Numerics.Vector3)">
+            <summary>
+            Creates a pure rotation dual quaternion.
+            </summary>
+            <param name="angle">Angle to rotate.</param>
+            <param name="axis">Axis <see cref="T:System.Numerics.Vector3"/> to rotate around (normalized vector).</param>
+            <param name="point">Any <see cref="T:System.Numerics.Vector3"/> point of the axis (to create Plücker coordinates).</param>
+            <returns>The <see cref="T:DQNet_std.DualQuaternion"/>.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.CreateRotationPlucker(System.Double,System.Numerics.Vector3,System.Numerics.Vector3)">
+            <summary>
+            Creates a pure rotation dual quaternion using Plücker coordinates.
+            </summary>
+            <param name="angle">The angle to rotate.</param>
+            <param name="axis">The axis to rotate around (normalized vector).</param>
+            <param name="moment">Moment of the axis.</param>
+            <returns>The <see cref="T:DQNet_std.DualQuaternion"/>.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.CreateFromTranslation(System.Numerics.Vector3)">
+            <summary>
+            Creates a pure translation dual unit quaternion (1 + ε½t).
+            </summary>
+            <param name="vector">The translation <see cref="T:System.Numerics.Vector3"/> vector.</param>
+            <returns>The <see cref="T:DQNet_std.DualQuaternion"/>.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.CreateFromTranslation(System.Double,System.Numerics.Vector3)">
+            <summary>
+            Creates a pure translation dual quaternion (1 + ε½t * amount)
+            </summary>
+            <param name="amount">The translation <see cref="T:System.Double"/> amount</param>
+            <param name="vector">The translation <see cref="T:System.Numerics.Vector3"/> vector.</param>
+            <returns>The <see cref="T:DQNet_std.DualQuaternion"/>.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.CreateFromPoint(System.Numerics.Vector3)">
+            <summary>
+            Creates a dual quaternion representing a point.
+            </summary>
+            <param name="point">The position of the point.</param>
+            <returns>The <see cref="T:DQNet_std.DualQuaternion"/>.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.CreateLine(System.Numerics.Vector3,System.Numerics.Vector3)">
+            <summary>
+            Creates a dual quaternion representing a line.
+            </summary><param name="vector">Direction vector of the line.</param>
+            <param name="point">A <see cref="T:System.Numerics.Vector3"/> point of the line.</param>
+            <returns>The <see cref="T:DQNet_std.DualQuaternion"/>.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.CreateLinePlucker(System.Numerics.Vector3,System.Numerics.Vector3)">
+            <summary>
+            Creates a dual quaternion representing a line from Plücker coordinates.
+            </summary>
+            <param name="vector">Direction <see cref="T:System.Numerics.Vector3"/> vector of the line.</param>
+            <param name="moment">The <see cref="T:System.Numerics.Vector3"/> moment of the line.</param>
+            <returns>The <see cref="T:DQNet_std.DualQuaternion"/>.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.CreatePlane(System.Numerics.Vector3,System.Single)">
+            <summary>
+            Creates a unit dual quaternion representing a plane.
+            </summary>
+            <param name="normal">Normal <see cref="T:System.Numerics.Vector3"/> of the plane.</param>
+            <param name="distance">Distance from the origin to the plane.</param>
+            <returns>The <see cref="T:DQNet_std.DualQuaternion"/>.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.CreateRotationMatrix(Accord.Math.Matrix3x3)">
+            <summary>
+            Creates a pure rotation dual quaternion from a rotation matrix.
+            </summary>
+            <param name="rotation">The 3x3 Rotation matrix.</param>
+            <returns>The <see cref="T:DQNet_std.DualQuaternion"/>.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.CreateRotationThenTranslation(System.Numerics.Quaternion@,System.Numerics.Vector3)">
+            <summary>
+            Creates a rotation then translation dual quaternion (r + ε½tr).
+            </summary>
+            <param name="rotation">The rotation.</param>
+            <param name="translation">The translation.</param>
+            <returns>The <see cref="T:DQNet_std.DualQuaternion"/>.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.Dot(DQNet_std.DualQuaternion@,DQNet_std.DualQuaternion@)">
+            <summary>
+            Calculates the dot product of two dual quaternions.
+            </summary>
+            <param name="left">The left dual quaternion.</param>
+            <param name="right">The right dual quaternion.</param>
+            <returns>The <see cref="T:System.Single"/> result of the dot product.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.Normalize(DQNet_std.DualQuaternion)">
+            <summary>
+            Converts the dual quaternion to a unit dual quaternion.
+            </summary>
+            <param name="value">The <see cref="T:DQNet_std.DualQuaternion"/> to normalize.</param>
+            <returns>
+            The normalized <see cref="T:DQNet_std.DualQuaternion"/>.
+            </returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.Conjugate(DQNet_std.DualQuaternion@)">
+            <summary>
+            Conjugates a dual quaternion.
+            </summary>
+            <param name="value">The dual quaternion to conjugate.</param>
+            <returns>The conjugated <see cref="T:DQNet_std.DualQuaternion"/>.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.CliffordConjugationTransformationF1G(DQNet_std.DualQuaternion@,DQNet_std.DualQuaternion@)">
+            <summary>
+            Clifford conjugation transformation of type F1G (Alba Perez notation).
+            </summary>
+            <remarks>
+            f1G : C(V, &lt;, &gt;) −→ C(V, &lt;, &gt;)
+            A : B −→ ABA
+            </remarks>
+            <param name="transformation">The <see cref="T:DQNet_std.DualQuaternion"/> representing the transformation.</param>
+            <param name="value">The <see cref="T:DQNet_std.DualQuaternion"/> being transformed.</param>
+            <returns>The resulting <see cref="T:DQNet_std.DualQuaternion"/>.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.CliffordConjugationTransformationF2G(DQNet_std.DualQuaternion@,DQNet_std.DualQuaternion@)">
+            <summary>
+            Clifford conjugation transformation of type F2G (Alba Perez notation) - This transformation is useful for lines.
+            </summary>
+            <remarks>
+            A : B −→ ABA∗
+            f2G : C(V, &lt;, &gt;) −→ C(V, &lt;, &gt;)
+            </remarks>
+            <param name="value">The <see cref="T:DQNet_std.DualQuaternion"/> being transformed.</param>
+            <param name="transformation">The <see cref="T:DQNet_std.DualQuaternion"/> representing the transformation.</param>
+            <returns>The resulting <see cref="T:DQNet_std.DualQuaternion"/>.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:DQNet_std.DualQuaternion.CliffordConjugationTransformationF3G(DQNet_std.DualQuaternion@,DQNet_std.DualQuaternion@)" -->
+        <member name="M:DQNet_std.DualQuaternion.CliffordConjugationTransformationF4G(DQNet_std.DualQuaternion@,DQNet_std.DualQuaternion@,System.Boolean)">
+            <summary>
+            Applies a clifford conjugation transformation of type F4G (Alba Perez notation) - This transformation is useful for points.
+            </summary>
+            <param name="value">Dual quaternion being transformed. </param>
+            <param name="transformation">Dual quaternion representing the transformation.</param>
+            <param name="adjust">Set to true for adjusting the resulting dual quaternion (Defaulted to true).</param>
+            <returns>The resulting <see cref="T:DQNet_std.DualQuaternion"/>.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.Multiply(DQNet_std.DualQuaternion[])">
+            <summary>
+            Multiplies a collection of dual quaternion transformations.
+            </summary>
+            <param name="values">The collection of dual quaternions.</param>
+            <returns>The product of all dual quaternions.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.TransformPoint(System.Numerics.Vector3,DQNet_std.DualQuaternion@,System.Boolean)">
+            <summary>
+            Applies a Clifford conjugation transformation of type F4G, then convert the result to a point.
+            </summary>
+            <param name="value">The point being transformed.</param>
+            <param name="transformation">The dual quaternion representing the transformation.</param>
+            <param name="round">If true, applies rounding to the transformed point coordinates.</param>
+            <returns>The transformed point.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.IsPointOnPlane(DQNet_std.DualQuaternion@,DQNet_std.DualQuaternion@)">
+            <summary>
+            Checks to see if a point Q is on the plane P.
+            </summary>
+            <param name="point">The point.</param>
+            <param name="plane">The plane.</param>
+            <returns>True if the point is on the plane.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.Compare(DQNet_std.DualQuaternion@,DQNet_std.DualQuaternion@,System.Double)">
+            <summary>
+            Compares two dual quaternions.
+            </summary>
+            <param name="left">The first dual quaternion.</param>
+            <param name="right">The second dual quaternion.</param>
+            <param name="precision">The comparison precision.</param>
+            <returns>0 if both dual quaternions are equal.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.Conjugate">
+            <summary>
+            Gets the conjugates.
+            </summary>
+            <returns>The conjugate <see cref="T:DQNet_std.DualQuaternion"/>.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.Inverse">
+            <summary>
+            Inverts a dual quaternion
+            </summary>
+            <returns>The inverse <see cref="T:DQNet_std.DualQuaternion"/>.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.GetLengthSquared">
+            <summary>
+            Gets the length squared for a dual quaternion.
+            </summary>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.ToMatrix">
+            <summary>
+            Converts a dual quaternion to a 4x4 homogeneous matrix.
+            </summary>
+            <returns>The homogeneous <see cref="T:Accord.Math.Matrix4x4"/>.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.GetPoint(System.Boolean)">
+            <summary>
+            Retrieves a point from a dual quaternion.
+            </summary>
+            <param name="round">If true, rounding is applied (Defaulted to false).</param>
+            <returns>The <see cref="T:System.Numerics.Vector3"/> point.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.ToArray">
+            <summary>
+            Creates an array containing the elements of the dual quaternion.
+            </summary>
+            <returns>
+            An eight-element array containing the components of the dual quaternion.
+            </returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.Equals(DQNet_std.DualQuaternion)">
+            <summary>
+            Determines whether the specified <see cref="T:DQNet_std.DualQuaternion"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:DQNet_std.DualQuaternion"/> to compare with this instance.</param>
+            <returns><c>true</c> if the specified <see cref="T:DQNet_std.DualQuaternion"/> is equal to this instance; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to this instance.
+            </summary>
+            <param name="value">The <see cref="T:System.Object"/> to compare with this instance.</param>
+            <returns><c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>A <see cref="T:System.String"/> that represents this instance.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.ToString(System.String)">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <param name="format">The format.</param>
+            <returns>A <see cref="T:System.String"/> that represents this instance.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.Adjusted">
+            <summary>
+            Adjusts a dual quaternion by setting its component to zero if less than precision.
+            </summary>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.Adjust(System.Double)">
+            <summary>
+            Adjusts the given double by setting to zero if less than zero tolerance.
+            </summary>
+            <param name="value">The double value to adjust.</param>
+            <returns>The adjusted float value.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.Round(System.Double)">
+            <summary>
+            Rounds a value.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The <see cref="T:System.Single"/>.</returns>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.Multiply(System.Double@,System.Double@,System.Double@,System.Double@,System.Double@,System.Double@,System.Double@,System.Double@,System.Double@,System.Double@,System.Double@,System.Double@)">
+            <summary>
+            Multiplies a quaternion by another.
+            </summary>
+            <param name="px">The x component of the left quaternion.</param>
+            <param name="py">The y component of the left quaternion.</param>
+            <param name="pz">The z component of the left quaternion.</param>
+            <param name="pw">The w component of the left quaternion.</param>
+            <param name="qx">The x component of the right quaternion.</param>
+            <param name="qy">The y component of the right quaternion.</param>
+            <param name="qz">The z component of the right quaternion.</param>
+            <param name="qw">The w component of the right quaternion.</param>
+            <param name="x">The x component of the product.</param>
+            <param name="y">The y component of the product.</param>
+            <param name="z">The z component of the product.</param>
+            <param name="w">The w component of the product.</param>
+        </member>
+        <member name="M:DQNet_std.DualQuaternion.Combine(DQNet_std.DualQuaternion,System.Double@,System.Double@,System.Double@,System.Double@,System.Double@,System.Double@,System.Double@,System.Double@)">
+            <summary>
+            Combines a dual quaternion transformation to another.
+            </summary>
+            <param name="transformation">
+            The value.
+            </param>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <param name="z">The z.</param>
+            <param name="w">The w.</param>
+            <param name="x0">The x 0.</param>
+            <param name="y0">The y 0.</param>
+            <param name="z0">The z 0.</param>
+            <param name="w0">The w 0.</param>
+        </member>
+    </members>
+</doc>
