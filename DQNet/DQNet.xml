@@ -448,7 +448,7 @@
             Dual quaternion extension methods.
             </summary>
         </member>
-        <member name="M:DQNet.DualQuaternionExtensions.TransformPoint(DQNet.DualQuaternion,System.Numerics.Vector3,System.Boolean)">
+        <member name="M:DQNet.DualQuaternionExtensions.TransformPoint(DQNet.DualQuaternion@,System.Numerics.Vector3,System.Boolean)">
             <summary>
             Applies a Clifford conjugation transformation of type F4G, then convert the result to a point (Applied to a specified point).
             </summary>
@@ -457,7 +457,7 @@
             <param name="round">If true, applies rounding to the transformed point coordinates (Defaulted to true).</param>
             <returns>The transformed <see cref="T:System.Numerics.Vector3"/> point.</returns>
         </member>
-        <member name="M:DQNet.DualQuaternionExtensions.TransformPoint(DQNet.DualQuaternion,System.Boolean)">
+        <member name="M:DQNet.DualQuaternionExtensions.TransformPoint(DQNet.DualQuaternion@,System.Boolean)">
             <summary>
             Applies a Clifford conjugation transformation of type F4G, then convert the result to a point (Applied to the origin point).
             </summary>

@@ -34,7 +34,7 @@ namespace DQNet
         /// <param name="round">If true, applies rounding to the transformed point coordinates (Defaulted to true).</param>
         /// <returns>The transformed <see cref="Vector3"/> point.</returns>
         public static Vector3 TransformPoint(
-            this DualQuaternion transformation, 
+            this in DualQuaternion transformation, 
             Vector3 value, 
             bool round = true)
         {
@@ -48,7 +48,7 @@ namespace DQNet
         /// <param name="round">If true, applies rounding to the transformed point coordinates (Defaulted to true).</param>
         /// <returns>The transformed <see cref="Vector3"/> point.</returns>
         public static Vector3 TransformPoint(
-            this DualQuaternion transformation, 
+            this in DualQuaternion transformation, 
             bool round = true)
         {
             return DualQuaternion.TransformPoint(
