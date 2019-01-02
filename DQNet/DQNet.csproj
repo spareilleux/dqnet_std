@@ -14,7 +14,7 @@
     <RepositoryUrl>https://github.com/spareilleux/dqnet_std</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseUrl>https://www.gnu.org/licenses/gpl-3.0.en.html</PackageLicenseUrl>
-    <PackageReleaseNotes>Initial version</PackageReleaseNotes>
+    <PackageReleaseNotes>Minor DualQuaternionExtensions improvement</PackageReleaseNotes>
     <PackageTags>Mathematics Kinematics Dual Quaternion .NET standard</PackageTags>
     <Version>1.0.1</Version>
   </PropertyGroup>
